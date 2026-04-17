@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Joint – Since 2013 THE Burger</title>
+    <meta name="description" content="El paraíso de la hamburguesa en Buenos Aires. Calidad, creatividad y el mejor ambiente.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="assets/logo-1.png" alt="Burger Joint Logo">
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="menu-overlay" id="menu-overlay"></div>
+
+            <nav class="nav-links" id="nav-links">
+                <button class="close-menu-btn" id="close-menu-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <a href="#hero" class="active">Home</a>
+                <a href="#historia">Nosotros</a>
+                <a href="https://menu.burgerjoint.com.ar/" target="_blank">Menú</a>
+                <a href="#contacto">Contacto</a>
+                <a href="https://www.instagram.com/burgerjointpalermo/" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content reveal">
+                <h1 class="hero-title"><span class="text-light">El paraíso de la</span> <br><span class="text-accent">hamburguesa</span></h1>
+                <p class="hero-subtitle">Tanto en la semana como el fin de semana, <strong>Burger Joint</strong> se llena de jóvenes y buena onda, ideal para cargar energías después de una noche tan corta como agitada.</p>
+                <a href="#historia" class="btn btn-primary">Saber más!</a>
+            </div>
+        </section>
+
+        <section id="historia" class="section about-section">
+            <div class="container grid-2-cols">
+                <div class="about-images reveal-left">
+                    <img src="assets/006.jpg" alt="Hamburguesa Especial" class="img-main">
+                    <img src="assets/004.jpg" alt="Local Burger Joint" class="img-secondary hide-mobile">
+                </div>
+                <div class="about-text reveal-right">
+                    <h2 class="section-title">De Nueva York a Buenos Aires</h2>
+                    <h3 class="section-subtitle">Nos gusta poder transmitir creatividad a través de nuestras hamburguesas</h3>
+                    <p>Después de vivir 12 años en Nueva York en donde trabajó en distintos espacios gastronómicos, Pierre Chacra llegó a Buenos Aires con la idea de darle a la hamburguesería un lugar distinto del que proponen los locales de comida rápida.</p>
+                    <p>La apuesta está en la calidad del producto con buenos cortes, pan y papas caseras, y cerveza artesanal.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="estilo" class="section dark-section">
+            <div class="container grid-2-cols reverse-mobile">
+                <div class="about-text reveal-left">
+                    <h2 class="section-title">Hamburguesas y paredes con estilo</h2>
+                    <h3 class="section-subtitle">La Mexican, una de las mejores 29 burgers del mundo</h3>
+                    <p>En la 'Jamaican' burger hay ananá entre otros ingredientes, en la 'Mexican' jalapeños y guacamole –elegida por el Huffington Post como una de las mejores 29 burgers del mundo– y en la de nombre 'la Bleu', con roquefort, hongos portobello y tomates secos.</p>
+                    <p>Variedad de ingredientes poco frecuentes en las hamburguesas.</p>
+                </div>
+                <div class="about-images reveal-right">
+                    <img src="assets/001.jpg" alt="Interior Burger Joint" class="img-horizontal">
+                    <img src="assets/002-2.jpg" alt="Fachada Burger Joint" class="img-horizontal hide-mobile" style="margin-top: 20px;">
+                </div>
+            </div>
+        </section>
+
+        <section id="quote" class="video-quote-section reveal">
+            <video class="bg-video" autoplay muted playsinline loop>
+                <source src="assets/video-1.mp4#t=3,21" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="quote-content container">
+                <blockquote>
+                    "Me parecía que faltaba darle ese lugar acá en Buenos Aires, sacarla un poco del cliché de comida rápida..."
+                </blockquote>
+                <cite>— Pierre Chacra</cite>
+            </div>
+        </section>
+
+        <section id="ambiente" class="section text-center">
+            <div class="container container-sm reveal">
+                <h2 class="section-title text-accent">El punto de encuentro de moda del barrio</h2>
+                <h3 class="section-subtitle">Decoración Artsy</h3>
+                <p class="text-large">La decoración es artsy, y el lugar se volvió rápidamente el punto de encuentro de moda del barrio. Ideal para desconectarse un rato de la matrix, comerse una gran burger mientras suena Bowie, Marley o Amy de fondo en los parlantes.</p>
+            </div>
+        </section>
+
+        <section id="concepto" class="video-quote-section reveal">
+            <video class="bg-video" autoplay muted playsinline loop>
+                <source src="assets/video-2.mp4#t=3,21" type="video/mp4">
+            </video>
+            <div class="video-overlay dark-overlay"></div>
+            <div class="quote-content container">
+                <p class="concepto-text">
+                    "La comida se prepara al momento de tomar el pedido, lo que implica que el servicio se distancia levemente del concepto original de un fast food en pos de lograr un producto más casero y un servicio que se ajuste a los gustos particulares de cada cliente"
+                </p>
+            </div>
+        </section>
+
+        <section id="contacto" class="section contact-section dark-section">
+            <div class="container grid-2-cols">
+                <div class="contact-info reveal-left">
+                    <h2 class="section-title">CONTACTANOS</h2>
+                    <h3 class="section-subtitle text-accent">Estamos a un click!</h3>
+                    <p>Escribinos y te responderemos a la brevedad para resolver cualquier duda o consulta sobre nuestro menú.</p>
+                    
+                    <ul class="contact-list">
+                        <li><i class="fas fa-phone-alt"></i> +54 9 11 5931-5097</li>
+                        <li><i class="fas fa-envelope"></i> hola@burgerjoint.com</li>
+                    </ul>
+                </div>
+                <div class="contact-form-wrapper reveal-right">
+                    <form class="custom-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nombre y apellido *</label>
+                            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Celular</label>
+                            <input type="text" id="phone" name="phone" placeholder="Celular">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje *</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tu mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="instagram-banner section text-center">
+            <div class="container reveal">
+                <h2 class="section-title">Sumate a nuestra comunidad</h2>
+                <p>Seguinos para enterarte de todas las novedades y ver nuestras creaciones.</p>
+                <a class="btn btn-outline-social" href="https://www.instagram.com/burgerjointpalermo/" target="_blank">
+                    <i class="fab fa-instagram"></i> Síguenos en Instagram
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="assets/logo-1.png" alt="Burger Joint Logo" class="footer-logo">
+            </div>
+            
+            <div class="footer-links">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="https://menu.burgerjoint.com.ar/" target="_blank">Menú</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Información de contacto</h4>
+                <p><i class="fas fa-phone-alt"></i> +54 9 11 5931-5097</p>
+                <p><i class="fas fa-envelope"></i> hola@burgerjoint.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2024 Burger Joint. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#hero" class="back-to-top" id="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script src="main.js"></script>
+</body>
+</html>
