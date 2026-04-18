@@ -5,14 +5,11 @@
     --text-muted: #dcdcdc;
     --font-main: 'Open Sans', sans-serif;
     --font-heading: 'Montserrat', sans-serif;
-    
-    /* FIX LAG: Solo animamos lo necesario */
-    --transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.4s ease, border-color 0.4s ease;
+    --transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* FIX FRANJA BLANCA: Fondo oscuro por defecto para el rebote del celular */
 html {
     background-color: var(--bg-dark);
 }
@@ -25,69 +22,43 @@ body {
     background-color: var(--bg-dark);
 }
 
-/* FIX LAG: El fondo fijo se hace con un pseudo-elemento para no sobrecargar el celular */
+/* Fondo optimizado sin lag */
 body::before {
     content: '';
     position: fixed;
-    top: 0; left: 0; width: 100%; 
-    height: 100vh;
-    height: 100dvh; /* dvh se adapta a si la barra del celular está visible o no */
+    top: -50px; left: -50px; right: -50px; bottom: -50px; 
     background: url('../assets/background-3.jpg') no-repeat center center;
     background-size: cover;
     z-index: -2;
-    will-change: transform;
+    transform: translateZ(0); 
 }
 
 .body-overlay {
     position: fixed;
-    top: 0; left: 0; width: 100%; 
-    height: 100vh;
-    height: 100dvh;
-    background: rgba(15, 15, 15, 0.85); 
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 15, 15, 0.88); 
     z-index: -1;
+    transform: translateZ(0);
 }
 
-.menu-header {
-    padding: 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(10, 10, 10, 0.9);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+/* ==========================================
+   CATÁLOGO Y ESPACIADO
+   ========================================== */
+.catalog-wrapper { 
+    padding: 140px 20px 40px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    position: relative; 
+    z-index: 2; 
 }
-
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.back-link { 
-    color: white; 
-    text-decoration: none;
-    font-size: 1.1rem; 
-    font-weight: 600;
-    text-transform: uppercase;
-    font-family: var(--font-heading);
-    transition: color 0.3s ease, transform 0.3s ease; 
-}
-.back-link i { margin-right: 8px; }
-.back-link:hover { color: var(--primary); transform: translateX(-5px); }
-
-.logo-small { height: 45px; }
-
-.catalog-wrapper { padding: 40px 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
 
 .intro-text { text-align: center; margin-bottom: 50px; }
-.intro-text h1 { font-family: var(--font-heading); font-weight: 900; font-size: clamp(2rem, 5vw, 3rem); text-transform: uppercase; letter-spacing: 1px;}
+.intro-text h1 { font-family: var(--font-heading); font-weight: 900; font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; letter-spacing: 1px; color: #fff;}
 .intro-text p { color: var(--text-muted); font-size: 1.1rem; margin-top: 10px; }
 
 .burger-gallery {
     display: grid;
+    /* En PC se adapta automáticamente a tarjetas de mínimo 260px */
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 40px;
 }
@@ -98,47 +69,67 @@ body::before {
     text-decoration: none;
     display: block; 
     transition: var(--transition);
-    /* FIX LAG: Reemplazamos backdrop-filter (blur) por un color sólido opaco */
-    background: rgba(20, 20, 20, 0.85); 
+    background: #141414; 
     border: 1px solid rgba(255,255,255,0.05);
     border-radius: 20px;
-    padding: 30px 15px 20px;
+    padding: 30px 15px; 
 }
 
 .burger-item img {
     width: 100%;
     max-width: 240px;
-    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.9));
-    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.6)); 
+    transition: transform 0.3s ease;
     margin-bottom: 15px;
-    will-change: transform;
-}
-
-.burger-item h3 {
-    font-family: var(--font-heading);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 1.2rem;
-    color: #fff;
-    transition: color 0.3s ease;
 }
 
 .burger-item:hover { 
-    transform: translateY(-10px); 
+    transform: translateY(-5px); 
     border-color: rgba(220,160,57,0.3);
-    background: rgba(0,0,0,0.9);
+    background: #1a1a1a;
 }
 .burger-item:hover img { 
-    filter: drop-shadow(0 20px 30px rgba(220,160,57,0.3)); 
-    transform: scale(1.08) rotate(-2deg); 
+    transform: scale(1.05); 
 }
-.burger-item:hover h3 { color: var(--primary); }
 
-/* Animaciones reveal con aceleración por hardware */
 .reveal { 
     opacity: 0; 
-    transform: translateY(30px); 
-    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1), transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); 
-    will-change: opacity, transform;
+    transform: translateY(20px); 
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
 }
 .reveal.active { opacity: 1; transform: translateY(0); }
+
+/* ==========================================
+   MEDIA QUERIES (MOBILE)
+   ========================================== */
+@media (max-width: 768px) {
+    .catalog-wrapper {
+        padding-top: 110px; 
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .intro-text h1 { font-size: 2.2rem; }
+    .intro-text p { font-size: 1rem; }
+    
+    .burger-gallery { 
+        /* FIX: Forzamos 2 columnas idénticas en móviles */
+        grid-template-columns: 1fr 1fr; 
+        gap: 15px; /* Reducimos el espacio entre tarjetas */
+    }
+    
+    .burger-item {
+        /* Ajustamos el relleno para que la tarjeta no quede enorme */
+        padding: 20px 10px 15px; 
+        border-radius: 16px;
+    }
+    
+    .burger-item img {
+        margin-bottom: 10px;
+    }
+    
+    /* Reducimos la fuente para que los nombres largos no se rompan */
+    .burger-item h3 {
+        font-size: 0.95rem; 
+    }
+}

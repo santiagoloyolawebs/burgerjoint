@@ -13,17 +13,17 @@ body {
     background: linear-gradient(135deg, #1a1a1a 0%, #2d1a1a 100%);
     color: var(--text-light);
     min-height: 100vh;
-    padding-top: 120px; 
+    /* FIX: Aumentamos el padding para que la navbar no tape el contenido */
+    padding-top: 140px; 
 }
 
 .web-container {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    /* Los paddings ahora viven aquí para no afectar al footer */
     padding-left: 20px;
     padding-right: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
 }
 
 .btn-back {
@@ -48,40 +48,38 @@ body {
 
 .hamburger-section { text-align: center; }
 
+/* FIX: Ocultamos el título visualmente pero lo mantenemos en el código */
 .title {
-    font-size: clamp(48px, 6vw, 72px);
-    font-weight: 900;
-    color: var(--primary);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    font-family: var(--font-heading);
+    display: none;
 }
 
 .hamburger-image {
     width: 100%;
     max-width: 450px;
     filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.8));
+    /* Aceleración por hardware para que no haya lag al cargar */
+    transform: translateZ(0);
 }
 
 .subtitle {
-    font-size: 36px;
+    font-size: 32px;
     color: var(--primary);
-    font-weight: 300;
-    letter-spacing: 1px;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    font-family: 'Georgia', serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
 }
 
 .chilis {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin: 15px 0;
+    gap: 15px;
+    margin: 20px 0 40px 0;
 }
 
 .chilis span {
-    font-size: 35px;
+    font-size: 40px;
     transition: all 0.3s ease;
 }
 
@@ -136,6 +134,8 @@ body {
 }
 
 @media (max-width: 900px) {
-    .desktop-grid { grid-template-columns: 1fr; }
-    .hamburger-image { max-width: 300px; }
+    body { padding-top: 120px; }
+    .desktop-grid { grid-template-columns: 1fr; gap: 30px; }
+    .hamburger-image { max-width: 320px; }
+    .section-title, .salsa-title { font-size: 32px; }
 }

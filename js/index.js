@@ -1,46 +1,64 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. ANIMACIONES DE REVELADO (Intersection Observer - Alto Rendimiento)
-    const revealOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target); // Dejamos de observar una vez animado
-            }
-        });
-    }, revealOptions);
-
-    const elementsToReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    elementsToReveal.forEach(el => revealObserver.observe(el));
-
-    // 2. BOTÓN VOLVER ARRIBA (Optimizado)
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. BOTÓN VOLVER ARRIBA (Optimizado)
     const backToTop = document.getElementById('back-to-top');
-    let isVisible = false;
+    let isBtnVisible = false;
 
     window.addEventListener('scroll', () => {
-        const scrollY = window.scrollY;
-        if (scrollY > 500 && !isVisible) {
-            backToTop.classList.add('visible');
-            isVisible = true;
-        } else if (scrollY <= 500 && isVisible) {
-            backToTop.classList.remove('visible');
-            isVisible = false;
+        if (backToTop) {
+            const scrollY = window.scrollY;
+            if (scrollY > 50 && !isBtnVisible) {
+                backToTop.classList.add('visible');
+                isBtnVisible = true;
+            } else if (scrollY <= 50 && isBtnVisible) {
+                backToTop.classList.remove('visible');
+                isBtnVisible = false;
+            }
         }
-    }, { passive: true }); // passive: true mejora el rendimiento del scroll
+    }, { passive: true });
 
-    // 3. CAMBIO DE IMÁGENES HERO (Opcional, si tienes slider)
-    const hero = document.getElementById('hero');
-    const images = ['assets/slide-1.jpg', 'assets/slide-2.jpg', 'assets/slide-3.jpg'];
-    let currentImg = 0;
+    // 2. HERO BACKGROUND SLIDER
+    const heroSection = document.getElementById('hero');
+    if(heroSection) {
+        const images = [
+            'assets/slide-1.jpg',
+            'assets/slide-2.jpg',
+            'assets/slide-3.jpg'
+        ];
+        let currentIndex = 0;
 
-    if (hero) {
+        images.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+
+        heroSection.style.backgroundImage = `url("${images[0]}")`;
+        
         setInterval(() => {
-            currentImg = (currentImg + 1) % images.length;
-            hero.style.backgroundImage = `url('${images[currentImg]}')`;
-        }, 5000);
+            currentIndex = (currentIndex + 1) % images.length;
+            heroSection.style.backgroundImage = `url("${images[currentIndex]}")`;
+        }, 4000); 
+    }
+
+    // 3. ANIMACIONES AL HACER SCROLL (Intersection Observer - Alto Rendimiento)
+    const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    if (reveals.length > 0) {
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, revealOptions);
+
+        reveals.forEach(reveal => {
+            revealOnScroll.observe(reveal);
+        });
     }
 });
