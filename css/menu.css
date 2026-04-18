@@ -1,0 +1,173 @@
+/* ==========================================
+   VARIABLES GLOBALES
+   ========================================== */
+:root {
+    --primary: #DCA039; 
+    --bg-dark: #121212;
+    --text-main: #f4f4f4;
+    --text-muted: #aaaaaa;
+    
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    
+    --transition-spring: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* ==========================================
+   PANTALLA DE MENÚ (SPLASH PAGE)
+   ========================================== */
+.menu-landing {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../assets/background-3.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    padding-top: 80px; /* Espacio para la navbar */
+}
+
+.menu-landing-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.75); 
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1;
+}
+
+/* Tarjeta Central Glassmorphism */
+.menu-glass-card {
+    position: relative;
+    z-index: 2;
+    background: rgba(20, 20, 20, 0.4); 
+    backdrop-filter: blur(15px); 
+    -webkit-backdrop-filter: blur(15px); 
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 60px 50px;
+    max-width: 900px; /* Ensanchado para diseño horizontal */
+    width: 100%;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    
+    /* Layout Horizontal por defecto para PC */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.menu-headers {
+    flex: 1;
+    text-align: left; /* Textos alineados a la izquierda */
+}
+
+.menu-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4.5vw, 3.5rem); /* Título imponente */
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.menu-subtitle {
+    font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* Tarjetas de Idioma */
+.language-options {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Apilados verticalmente a la derecha */
+    gap: 25px;
+    align-items: center;
+}
+
+.lang-card {
+    display: block;
+    border-radius: 16px; 
+    overflow: hidden;
+    max-width: 320px;
+    width: 100%;
+    background: transparent;
+    border: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    transition: var(--transition-spring);
+    cursor: pointer;
+}
+
+.lang-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scale(1.02); 
+    transition: transform 0.5s ease;
+}
+
+/* Efectos al pasar el mouse */
+.lang-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+.lang-card:hover img {
+    transform: scale(1.06);
+}
+
+/* Animación de Aparición */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   DISEÑO PARA CELULARES
+   ========================================== */
+@media (max-width: 768px) {
+    .menu-glass-card {
+        flex-direction: column; /* Vuelve a apilarse verticalmente */
+        text-align: center;
+        padding: 40px 20px;
+        gap: 40px;
+    }
+    
+    .menu-headers {
+        text-align: center; /* Centra los textos en móvil */
+    }
+
+    .menu-title {
+        font-size: 2.2rem;
+    }
+
+    .lang-card {
+        max-width: 280px;
+    }
+}

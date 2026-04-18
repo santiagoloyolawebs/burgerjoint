@@ -9,10 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
 
@@ -32,10 +33,9 @@
                 <button class="close-menu-btn" id="close-menu-btn">
                     <i class="fas fa-times"></i>
                 </button>
-
                 <a href="#hero" class="active">Home</a>
                 <a href="#historia">Nosotros</a>
-                <a href="https://menu.burgerjoint.com.ar/" target="_blank">Menú</a>
+                <a href="menu.html">Menú</a>
                 <a href="#contacto">Contacto</a>
                 <a href="https://www.instagram.com/burgerjointpalermo/" target="_blank" class="social-icon">
                     <i class="fab fa-instagram"></i>
@@ -85,8 +85,8 @@
         </section>
 
         <section id="quote" class="video-quote-section reveal">
-            <video class="bg-video" autoplay muted playsinline loop>
-                <source src="assets/video-1.mp4#t=3,21" type="video/mp4">
+            <video class="bg-video" autoplay muted playsinline loop poster="assets/001.jpg">
+                <source src="assets/video-1.mp4" type="video/mp4">
             </video>
             <div class="video-overlay"></div>
             <div class="quote-content container">
@@ -106,8 +106,8 @@
         </section>
 
         <section id="concepto" class="video-quote-section reveal">
-            <video class="bg-video" autoplay muted playsinline loop>
-                <source src="assets/video-2.mp4#t=3,21" type="video/mp4">
+            <video class="bg-video" autoplay muted playsinline loop poster="assets/006.jpg">
+                <source src="assets/video-2.mp4" type="video/mp4">
             </video>
             <div class="video-overlay dark-overlay"></div>
             <div class="quote-content container">
@@ -123,11 +123,6 @@
                     <h2 class="section-title">CONTACTANOS</h2>
                     <h3 class="section-subtitle text-accent">Estamos a un click!</h3>
                     <p>Escribinos y te responderemos a la brevedad para resolver cualquier duda o consulta sobre nuestro menú.</p>
-                    
-                    <ul class="contact-list">
-                        <li><i class="fas fa-phone-alt"></i> +54 9 11 5931-5097</li>
-                        <li><i class="fas fa-envelope"></i> hola@burgerjoint.com</li>
-                    </ul>
                 </div>
                 <div class="contact-form-wrapper reveal-right">
                     <form class="custom-form" id="contact-form">
@@ -164,37 +159,14 @@
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <img src="assets/logo-1.png" alt="Burger Joint Logo" class="footer-logo">
-            </div>
-            
-            <div class="footer-links">
-                <h4>Links</h4>
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="https://menu.burgerjoint.com.ar/" target="_blank">Menú</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-contact">
-                <h4>Información de contacto</h4>
-                <p><i class="fas fa-phone-alt"></i> +54 9 11 5931-5097</p>
-                <p><i class="fas fa-envelope"></i> hola@burgerjoint.com</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>© 2024 Burger Joint. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
     <a href="#hero" class="back-to-top" id="back-to-top">
         <i class="fas fa-chevron-up"></i>
     </a>
 
-    <script src="main.js"></script>
+    <div id="footer-placeholder"></div>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/footer.js"></script>
 </body>
 </html>

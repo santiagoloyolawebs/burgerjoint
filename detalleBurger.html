@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle - Burger Joint</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/detalleBurger.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo-1.png" alt="Burger Joint Logo">
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="menu-overlay" id="menu-overlay"></div>
+
+            <nav class="nav-links" id="nav-links">
+                <button class="close-menu-btn" id="close-menu-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+                <a href="index.html#hero">Home</a>
+                <a href="index.html#historia">Nosotros</a>
+                <a href="menuES.html" class="active">Menú</a>
+                <a href="index.html#contacto">Contacto</a>
+                <a href="https://www.instagram.com/burgerjointpalermo/" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="web-container">
+        <a href="menuES.html" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</a>
+        
+        <div class="desktop-grid">
+            <div class="hamburger-section">
+                <h1 class="title" id="burger-title">Cargando...</h1>
+                <img src="" id="burger-img" class="hamburger-image" alt="Burger">
+                
+                <div id="spicy-wrapper" style="display: none;">
+                    <h2 class="subtitle">Picante</h2>
+                    <div class="chilis" id="burger-chilis"></div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3 class="section-title">Descripción</h3>
+                <div class="detail-section">
+                    <p class="detail-text" id="burger-desc"></p>
+                </div>
+
+                <h3 class="section-title">Ingredientes</h3>
+                <div class="ingredients-container" id="burger-ingredients"></div>
+
+                <div id="sauce-wrapper" style="display: none;">
+                    <h3 class="salsa-title">Salsa</h3>
+                    <div class="salsa-section">
+                        <p class="salsa-text" id="burger-sauce"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/detalleBurger.js"></script>
+    <script src="js/footer.js"></script>
+</body>
+</html>

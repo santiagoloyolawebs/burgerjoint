@@ -1,0 +1,106 @@
+/* ==========================================
+   BARRA DE NAVEGACIÓN UNIVERSAL
+   ========================================== */
+:root {
+    --primary-nav: #DCA039;
+    --transition-nav: all 0.3s ease;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    z-index: 9999;
+    transition: var(--transition-nav);
+    background: transparent;
+}
+
+.navbar.scrolled {
+    background: rgba(18, 18, 18, 0.98) !important;
+    padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar .logo { display: flex; align-items: center; }
+.navbar .logo img { height: 50px; transition: var(--transition-nav); }
+.navbar.scrolled .logo img { height: 40px; }
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #fff !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    color: var(--primary-nav) !important;
+}
+
+/* Ícono de Instagram */
+.social-icon { font-size: 1.4rem !important; }
+
+/* Botón Móvil */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: auto; /* Lo fuerza a la derecha */
+}
+
+.close-menu-btn, .menu-overlay { display: none; }
+
+/* ==========================================
+   DISEÑO PARA CELULARES
+   ========================================== */
+@media (max-width: 768px) {
+    .mobile-menu-btn { display: block; }
+    
+    .nav-links {
+        position: fixed; top: 0; right: 0; transform: translateX(100%);
+        height: 100vh; width: 80%; max-width: 320px;
+        background: #121212; flex-direction: column; justify-content: center;
+        transition: transform 0.4s ease; z-index: 10002;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    }
+
+    .nav-links.active { transform: translateX(0); }
+
+    .close-menu-btn {
+        display: block; position: absolute; top: 20px; right: 20px;
+        background: none; border: none; color: #fff; font-size: 30px; cursor: pointer;
+    }
+
+    .menu-overlay {
+        display: block; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        background: rgba(0,0,0,0.7); z-index: 10001; opacity: 0; visibility: hidden;
+        transition: all 0.3s ease; backdrop-filter: blur(3px);
+    }
+
+    .menu-overlay.active { opacity: 1; visibility: visible; }
+}

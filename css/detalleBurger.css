@@ -1,0 +1,141 @@
+:root {
+    --primary: #FFB700;
+    --bg-dark: #0a0a0a;
+    --text-light: #ffffff;
+    --font-main: 'Open Sans', sans-serif;
+    --font-heading: 'Impact', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-main);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1a1a 100%);
+    color: var(--text-light);
+    min-height: 100vh;
+    padding-top: 120px; 
+}
+
+.web-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    /* Los paddings ahora viven aquí para no afectar al footer */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+}
+
+.btn-back {
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 30px;
+    transition: transform 0.3s;
+}
+
+.btn-back:hover { transform: translateX(-5px); }
+
+.desktop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.hamburger-section { text-align: center; }
+
+.title {
+    font-size: clamp(48px, 6vw, 72px);
+    font-weight: 900;
+    color: var(--primary);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+}
+
+.hamburger-image {
+    width: 100%;
+    max-width: 450px;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.8));
+}
+
+.subtitle {
+    font-size: 36px;
+    color: var(--primary);
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-family: 'Georgia', serif;
+}
+
+.chilis {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.chilis span {
+    font-size: 35px;
+    transition: all 0.3s ease;
+}
+
+.chilis span.dimmed {
+    opacity: 0.2;
+    filter: grayscale(100%);
+}
+
+.section-title {
+    font-size: 40px;
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+}
+
+.salsa-title {
+    font-size: 40px;
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    margin-top: 30px; 
+}
+
+.detail-section, .salsa-section {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255, 183, 0, 0.2);
+}
+
+.detail-text, .salsa-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--primary);
+}
+
+.ingredients-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.ingredient-tag {
+    border: 2px solid var(--primary);
+    border-radius: 40px;
+    padding: 10px 20px;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+@media (max-width: 900px) {
+    .desktop-grid { grid-template-columns: 1fr; }
+    .hamburger-image { max-width: 300px; }
+}

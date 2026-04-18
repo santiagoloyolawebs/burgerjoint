@@ -1,0 +1,79 @@
+:root {
+    --primary: #FFB700;
+    --text-light: #ffffff;
+    --font-main: 'Open Sans', sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background: url('../assets/background-3.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-light);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    position: relative;
+    padding-top: 100px; /* Espacio para la navbar */
+}
+
+.body-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: -1;
+}
+
+.catalog-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.intro-text { text-align: center; margin-bottom: 50px; }
+.intro-text h1 { font-family: var(--font-heading); font-weight: 900; font-size: 3rem; text-transform: uppercase; margin-bottom: 10px; }
+.text-accent { color: var(--primary); }
+.intro-text p { font-size: 1.2rem; opacity: 0.9; }
+
+.burger-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.burger-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+.burger-item:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary);
+}
+
+.burger-item img {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+}
+
+.burger-item h3 { font-family: var(--font-heading); font-size: 1.5rem; text-transform: uppercase; }
+
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .intro-text h1 { font-size: 2.2rem; }
+    .burger-gallery { grid-template-columns: 1fr 1fr; gap: 15px; }
+    .burger-item { padding: 15px; }
+    .burger-item h3 { font-size: 1.1rem; }
+}
