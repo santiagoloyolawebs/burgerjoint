@@ -15,6 +15,11 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* FIX FRANJA BLANCA: Fondo oscuro nativo */
+html {
+    background-color: var(--bg-dark);
+}
+
 body {
     font-family: var(--font-body);
     background-color: var(--bg-dark);
@@ -30,14 +35,14 @@ a { text-decoration: none; color: inherit; }
 .menu-landing {
     position: relative;
     min-height: 100vh;
-    min-height: 100dvh;
+    min-height: 100dvh; /* FIX: Se ajusta a la barra de direcciones del celu */
     display: flex;
     align-items: center;
     justify-content: center;
     background: url('../assets/background-3.jpg') no-repeat center center;
     background-size: cover;
     padding: 20px;
-    padding-top: 80px; /* Espacio para la navbar */
+    padding-top: 80px; 
 }
 
 .menu-landing-overlay {
@@ -59,11 +64,10 @@ a { text-decoration: none; color: inherit; }
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 24px;
     padding: 60px 50px;
-    max-width: 900px; /* Ensanchado para diseño horizontal */
+    max-width: 900px; 
     width: 100%;
     box-shadow: 0 30px 60px rgba(0,0,0,0.6);
     
-    /* Layout Horizontal por defecto para PC */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -73,12 +77,12 @@ a { text-decoration: none; color: inherit; }
 
 .menu-headers {
     flex: 1;
-    text-align: left; /* Textos alineados a la izquierda */
+    text-align: left; 
 }
 
 .menu-title {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 4.5vw, 3.5rem); /* Título imponente */
+    font-size: clamp(2rem, 4.5vw, 3.5rem); 
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -98,7 +102,7 @@ a { text-decoration: none; color: inherit; }
 .language-options {
     flex: 1;
     display: flex;
-    flex-direction: column; /* Apilados verticalmente a la derecha */
+    flex-direction: column; 
     gap: 25px;
     align-items: center;
 }
@@ -122,9 +126,9 @@ a { text-decoration: none; color: inherit; }
     display: block;
     transform: scale(1.02); 
     transition: transform 0.5s ease;
+    will-change: transform;
 }
 
-/* Efectos al pasar el mouse */
 .lang-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
@@ -139,6 +143,7 @@ a { text-decoration: none; color: inherit; }
     opacity: 0;
     transform: translateY(30px);
     animation: fadeUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    will-change: transform, opacity;
 }
 
 @keyframes fadeUp {
@@ -153,14 +158,14 @@ a { text-decoration: none; color: inherit; }
    ========================================== */
 @media (max-width: 768px) {
     .menu-glass-card {
-        flex-direction: column; /* Vuelve a apilarse verticalmente */
+        flex-direction: column; 
         text-align: center;
         padding: 40px 20px;
         gap: 40px;
     }
     
     .menu-headers {
-        text-align: center; /* Centra los textos en móvil */
+        text-align: center; 
     }
 
     .menu-title {
