@@ -6,6 +6,8 @@
     <title>Burger Joint – Since 2013 THE Burger</title>
     <meta name="description" content="El paraíso de la hamburguesa en Buenos Aires. Calidad, creatividad y el mejor ambiente.">
     
+    <link rel="preload" as="image" href="assets/slide-1.jpg">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -57,8 +59,8 @@
         <section id="historia" class="section about-section">
             <div class="container grid-2-cols">
                 <div class="about-images reveal-left">
-                    <img src="assets/006.jpg" alt="Hamburguesa Especial" class="img-main">
-                    <img src="assets/004.jpg" alt="Local Burger Joint" class="img-secondary hide-mobile">
+                    <img src="assets/006.jpg" alt="Hamburguesa Especial" class="img-main" loading="lazy">
+                    <img src="assets/004.jpg" alt="Local Burger Joint" class="img-secondary hide-mobile" loading="lazy">
                 </div>
                 <div class="about-text reveal-right">
                     <h2 class="section-title">De Nueva York a Buenos Aires</h2>
@@ -78,14 +80,14 @@
                     <p>Variedad de ingredientes poco frecuentes en las hamburguesas.</p>
                 </div>
                 <div class="about-images reveal-right">
-                    <img src="assets/001.jpg" alt="Interior Burger Joint" class="img-horizontal">
-                    <img src="assets/002-2.jpg" alt="Fachada Burger Joint" class="img-horizontal hide-mobile" style="margin-top: 20px;">
+                    <img src="assets/001.jpg" alt="Interior Burger Joint" class="img-horizontal" loading="lazy">
+                    <img src="assets/002-2.jpg" alt="Fachada Burger Joint" class="img-horizontal hide-mobile" style="margin-top: 20px;" loading="lazy">
                 </div>
             </div>
         </section>
 
         <section id="quote" class="video-quote-section reveal">
-            <video class="bg-video" autoplay muted playsinline loop poster="assets/001.jpg">
+            <video class="bg-video" autoplay muted playsinline loop poster="assets/001.jpg" preload="auto">
                 <source src="assets/video-1.mp4" type="video/mp4">
             </video>
             <div class="video-overlay"></div>
@@ -106,7 +108,7 @@
         </section>
 
         <section id="concepto" class="video-quote-section reveal">
-            <video class="bg-video" autoplay muted playsinline loop poster="assets/006.jpg">
+            <video class="bg-video" autoplay muted playsinline loop poster="assets/006.jpg" preload="auto">
                 <source src="assets/video-2.mp4" type="video/mp4">
             </video>
             <div class="video-overlay dark-overlay"></div>

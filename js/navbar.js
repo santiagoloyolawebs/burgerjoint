@@ -5,15 +5,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.getElementById('nav-links');
     const menuOverlay = document.getElementById('menu-overlay');
 
-    // 1. Efecto Scroll (Se pone oscura al bajar)
+    // 1. Efecto Scroll (Se pone oscura al bajar - Optimizado)
     if (navbar) {
+        let isScrolled = false;
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
+            const currentScroll = window.scrollY;
+            if (currentScroll > 50 && !isScrolled) {
                 navbar.classList.add('scrolled');
-            } else {
+                isScrolled = true;
+            } else if (currentScroll <= 50 && isScrolled) {
                 navbar.classList.remove('scrolled');
+                isScrolled = false;
             }
-        });
+        }, { passive: true });
     }
 
     // 2. Lógica del Menú Móvil
@@ -21,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const openMenu = () => {
             navLinks.classList.add('active');
             if (menuOverlay) menuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Evita scrollear la web de fondo
+            document.body.style.overflow = 'hidden'; 
         };
 
         const closeMenu = () => {
@@ -34,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
         closeBtn.addEventListener('click', closeMenu);
         if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
 
-        // Si se toca un enlace, el menú se cierra automáticamente
         const links = navLinks.querySelectorAll('a');
         links.forEach(link => {
             link.addEventListener('click', closeMenu);
