@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Pedir Online - Burger Joint</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/pedidos.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+    <div class="body-overlay"></div>
+
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo-1.png" alt="Burger Joint Logo">
+            </a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+            <div class="menu-overlay" id="menu-overlay"></div>
+            <nav class="nav-links" id="nav-links">
+                <button class="close-menu-btn" id="close-menu-btn"><i class="fas fa-times"></i></button>
+                <a href="index.html#hero">Home</a>
+                <a href="index.html#historia">Nosotros</a>
+                <a href="menuES.html">Menú</a>
+                <a href="pedidos.html" class="btn-nav-order active">Hacer Pedido</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="pedidos-wrapper">
+        <div class="pedidos-header reveal">
+            <h1>Armá tu <span class="text-accent">Pedido</span></h1>
+            <p>Elegí tus burgers favoritas y pasá por el carrito para finalizar.</p>
+        </div>
+
+        <div class="menu-section" id="menu-section">
+            </div>
+
+        <a href="carrito.html" class="floating-cart-btn" id="floating-cart-link" style="display: none;">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="floating-cart-badge" id="floating-cart-badge">0</span>
+        </a>
+    </main>
+
+    <div id="toast-container" class="toast-container"></div>
+    <div id="footer-placeholder"></div>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/pedidos.js"></script>
+    <script src="js/footer.js"></script>
+</body>
+</html>

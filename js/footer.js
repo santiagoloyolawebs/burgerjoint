@@ -15,49 +15,55 @@ document.addEventListener("DOMContentLoaded", () => {
                         </p>
                     </div>
 
-                    <div class="footer-column footer-location">
-                        <h4>Nos encontramos en</h4>
-                        <ul class="footer-list">
-                            <li>
-                                <i class="fas fa-map-marker-alt"></i> 
-                                <span>Jorge Luis Borges 1766, CABA</span>
-                            </li>
-                        </ul>
+                    <div class="footer-column accordion-col">
+                        <h4 class="accordion-btn">Nos encontramos en <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                        <div class="accordion-content">
+                            <ul class="footer-list">
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i> 
+                                    <span>Jorge Luis Borges 1766, CABA</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="footer-column footer-hours">
-                        <h4>Horarios</h4>
-                        <ul class="footer-list">
-                            <li>
-                                <i class="far fa-clock"></i> 
-                                <span>Domingo a Jueves:<br>12:00 – 00:00 hs</span>
-                            </li>
-                            <li>
-                                <i class="far fa-clock"></i> 
-                                <span>Viernes y Sábados:<br>12:00 – 01:00 hs</span>
-                            </li>
-                        </ul>
+                    <div class="footer-column accordion-col">
+                        <h4 class="accordion-btn">Horarios <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                        <div class="accordion-content">
+                            <ul class="footer-list">
+                                <li>
+                                    <i class="far fa-clock"></i> 
+                                    <span>Domingo a Jueves:<br>12:00 – 00:00 hs</span>
+                                </li>
+                                <li>
+                                    <i class="far fa-clock"></i> 
+                                    <span>Viernes y Sábados:<br>12:00 – 01:00 hs</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="footer-column footer-contact">
-                        <h4>Contacto</h4>
-                        <ul class="footer-list">
-                            <li>
-                                <i class="fas fa-phone-alt"></i> 
-                                <span>+54 9 11 5931-5097</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-envelope"></i> 
-                                <span>hola@burgerjoint.com</span>
-                            </li>
-                        </ul>
-                        
-                        <div class="footer-social-wrapper">
-                            <span class="social-label">Seguinos</span>
-                            <div class="footer-social">
-                                <a href="https://www.instagram.com/burgerjointpalermo/" target="_blank" aria-label="Instagram">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
+                    <div class="footer-column accordion-col">
+                        <h4 class="accordion-btn">Contacto <i class="fas fa-chevron-down toggle-icon"></i></h4>
+                        <div class="accordion-content">
+                            <ul class="footer-list">
+                                <li>
+                                    <i class="fas fa-phone-alt"></i> 
+                                    <span>+54 9 11 5931-5097</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i> 
+                                    <span>hola@burgerjoint.com</span>
+                                </li>
+                            </ul>
+                            
+                            <div class="footer-social-wrapper">
+                                <span class="social-label">Seguinos</span>
+                                <div class="footer-social">
+                                    <a href="https://www.instagram.com/burgerjointpalermo/" target="_blank" aria-label="Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -70,5 +76,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </footer>
         `;
+
+        // Lógica PRO: Acordeón solo para móviles
+        const accordions = document.querySelectorAll('.accordion-btn');
+        accordions.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (window.innerWidth <= 600) {
+                    btn.classList.toggle('active');
+                    const content = btn.nextElementSibling;
+                    
+                    if (btn.classList.contains('active')) {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                        content.style.maxHeight = null;
+                    }
+                }
+            });
+        });
+
+        // Prevención de errores: si el usuario rota la pantalla o redimensiona a PC, reseteamos el acordeón
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 600) {
+                document.querySelectorAll('.accordion-content').forEach(content => {
+                    content.style.maxHeight = null;
+                });
+                document.querySelectorAll('.accordion-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+            }
+        });
     }
 });

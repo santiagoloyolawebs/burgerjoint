@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Tu Pedido - Burger Joint</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/carrito.css"> 
+</head>
+<body>
+    <div class="body-overlay"></div>
+
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo-1.png" alt="Burger Joint Logo">
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="menu-overlay" id="menu-overlay"></div>
+
+            <nav class="nav-links" id="nav-links">
+                <button class="close-menu-btn" id="close-menu-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+                <a href="index.html#hero">Home</a>
+                <a href="index.html#historia">Nosotros</a>
+                <a href="menuES.html">Menú</a>
+                <a href="pedidos.html" class="btn-nav-order">Hacer Pedido</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="checkout-wrapper">
+        <div class="cart-subheader">
+            <a href="pedidos.html" class="btn-back"><i class="fas fa-arrow-left"></i> Volver</a>
+            </div>
+
+        <div class="checkout-container">
+            <div class="checkout-header">
+                <h1>Tu <span class="text-accent">Orden</span></h1>
+            </div>
+            
+            <div class="checkout-content">
+                <div class="cart-items-container" id="cart-items-container">
+                    </div>
+
+                <div class="checkout-sidebar" id="checkout-sidebar">
+                    <h3 class="sidebar-title">Resumen</h3>
+                    
+                    <div class="cart-total">
+                        <span>Total:</span>
+                        <span id="cart-total-price" class="text-accent">$0</span>
+                    </div>
+                    
+                    <button id="btn-checkout" class="btn-checkout">
+                        <i class="fab fa-whatsapp"></i> Enviar Pedido
+                    </button>
+                    
+                    <div class="checkout-info">
+                        <p><i class="fas fa-lock"></i> Tu pedido se procesará de forma segura vía WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/carrito.js"></script>
+</body>
+</html>
